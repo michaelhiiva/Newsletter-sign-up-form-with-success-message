@@ -1,18 +1,17 @@
 import successIcon from './images/icon-success.svg'
 
-export default function AppSuccess() {
-  const subscriptionPageItem = document.getElementById("subscription-page-item");
-  const successPageItem = document.getElementById("success-page-item");
+export default function AppSuccess({ emailAddressOutput, subscriptionPage, successPage }) {
 
   const handleDismissMessageClick = () => {
     // Handle the main display items hidden
-    subscriptionPageItem.classList.toggle('hidden');
+    subscriptionPage.current.classList.toggle('hidden');
+
     // Handle the state of the display on success-page-item
-    successPageItem.classList.toggle('hidden');
+    successPage.current.classList.toggle('hidden');
   };
 
   return (
-    <div id="success-page-item" className="hidden
+    <div ref={successPage} className="hidden
         grid 
         items-center
         bg-teal-900
@@ -32,7 +31,7 @@ export default function AppSuccess() {
           <img src={successIcon} className="my-1 w-14 h-14" alt="Success Icon" />
           <h1 className="text-4xl text-teal-800 font-bold">Thanks for subscribing!</h1>
           <p className="text-teal-700">
-            A confirmation email has been sent to <span className="subscriber-email-address"></span>. Please open it and click the button inside to confirm your subscription.
+            A confirmation email has been sent to <span ref={emailAddressOutput}></span>. Please open it and click the button inside to confirm your subscription.
           </p>
           <button type="submit"
 
