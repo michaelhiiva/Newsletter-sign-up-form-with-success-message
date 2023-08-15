@@ -30,7 +30,7 @@ export default function AppForm() {
             const toggleError = () => {
               email_address_input.classList.toggle('border-rose-600');
               email_address_input.classList.toggle('bg-rose-400');
-              if(email_error) email_error.classList.toggle('hidden');
+              email_error.classList.toggle('hidden');
             }
 
             toggleError();
