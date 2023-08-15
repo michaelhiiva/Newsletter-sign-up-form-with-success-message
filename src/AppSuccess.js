@@ -6,14 +6,13 @@ export default function AppSuccess() {
 
   const handleDismissMessageClick = () => {
     // Handle the main display items hidden
-    subscriptionPageItem.classList.toggle('hidden');
+    if (subscriptionPageItem) subscriptionPageItem.classList.toggle('hidden');
     // Handle the state of the display on success-page-item
-    successPageItem.classList.toggle('hidden');
+    if (successPageItem) successPageItem.classList.toggle('hidden');
   };
 
   return (
-    <div id="success-page-item" className="
-        hidden
+    <div id="success-page-item" className="hidden
         grid 
         items-center
         bg-teal-900

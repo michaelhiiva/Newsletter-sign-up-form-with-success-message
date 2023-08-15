@@ -11,9 +11,10 @@ export default function AppForm() {
 
         // Email address regular expression
         const email_address_regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-
         // Send input to success page and display success page
-        if (email_address_input.value !== null
+        if (email_address_input
+            && subscriptionPageItem
+            && successPageItem
             && email_address_input.value.match(email_address_regex)) {
             // Set the output text for the success page to the input of 
             // email address input.
@@ -26,9 +27,16 @@ export default function AppForm() {
             successPageItem.classList.toggle('hidden');
         } else {
             // display an error for the email
-            email_address_input.classList.toggle('border-rose-600');
-            email_address_input.classList.toggle('bg-rose-400');
-            email_error.classList.toggle('hidden');
+            const toggleError = () => {
+              email_address_input.classList.toggle('border-rose-600');
+              email_address_input.classList.toggle('bg-rose-400');
+              if(email_error) email_error.classList.toggle('hidden');
+            }
+
+            toggleError();
+
+            // Clear the error after 5 seconds
+            setTimeout(toggleError, 5000);
         }
 
     }
@@ -40,8 +48,7 @@ export default function AppForm() {
                 <p className="pl-8 pb-1 text-sm font-bold">Email</p>
                 <p className="email-error hidden pl-36 text-sm text-rose-600">Valid Email Required</p>
             </div>
-            <input type="text" className="
-                email_address_input
+            <input type="text" className="email_address_input
                 border-2
                 border-gray-400
                 rounded-md
