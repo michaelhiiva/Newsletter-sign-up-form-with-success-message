@@ -6,9 +6,9 @@ export default function AppSuccess() {
 
   const handleDismissMessageClick = () => {
     // Handle the main display items hidden
-    if (subscriptionPageItem) subscriptionPageItem.classList.toggle('hidden');
+    subscriptionPageItem.classList.toggle('hidden');
     // Handle the state of the display on success-page-item
-    if (successPageItem) successPageItem.classList.toggle('hidden');
+    successPageItem.classList.toggle('hidden');
   };
 
   return (
